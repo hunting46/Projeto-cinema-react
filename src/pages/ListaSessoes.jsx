@@ -18,12 +18,13 @@ export default function ListaSessoes() {
   return (
     <div className="container mt-4">
       <h2>Sessões Disponíveis</h2>
+      {sessoes.length === 0 && <p>Nenhuma sessão cadastrada ainda.</p>}
       {sessoes.map((s, i) => (
         <div key={i} className="border rounded p-3 mb-3">
-          <p><strong>Filme:</strong> {s.filme}</p>
-          <p><strong>Sala:</strong> {s.sala}</p>
-          <p><strong>Data e Hora:</strong> {s.dataHora}</p>
-          <p><strong>Preço:</strong> R$ {s.preco}</p>
+          <p><i className="bi bi-film"></i> <strong>Filme:</strong> {s.filme}</p>
+          <p><i className="bi bi-building"></i> <strong>Sala:</strong> {s.sala}</p>
+          <p><i className="bi bi-clock"></i> <strong>Data e Hora:</strong> {s.dataHora}</p>
+          <p><i className="bi bi-currency-dollar"></i> <strong>Preço:</strong> R$ {s.preco}</p>
           <Botao texto="Comprar Ingresso" onClick={() => comprar(s)} />
         </div>
       ))}
